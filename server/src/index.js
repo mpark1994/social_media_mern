@@ -14,6 +14,7 @@ import { fileURLToPath } from "url"
 
 // Local
 import { register } from "./controllers/auth.js"
+import authRoutes from "./routes/auth.js"
 
 // Server Configurations
 const __filename = fileURLToPath(import.meta.url)
@@ -42,6 +43,9 @@ const upload = multer({ storage })
 
 // Routes with Files
 app.post("/auth/register", upload.single("picture"), register)
+
+// Routes
+app.use("auth", authRoutes)
 
 // MongoDB Database
 const PORT = process.env.PORT || 6001
