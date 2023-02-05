@@ -15,6 +15,10 @@ import { fileURLToPath } from "url"
 // Local
 import { register } from "./controllers/auth.js"
 import authRoutes from "./routes/auth.js"
+import userRoutes from "./routes/users.js"
+import postRoutes from "./routes/posts.js"
+import { createPost } from "./controllers/posts.js" 
+import { verifyToken } from "./middleware/auth.js"
 
 // Server Configurations
 const __filename = fileURLToPath(import.meta.url)
@@ -43,9 +47,12 @@ const upload = multer({ storage })
 
 // Routes with Files
 app.post("/auth/register", upload.single("picture"), register)
+app.post("/posts", verifyToken, upload.single("picture"), createPost)
 
 // Routes
-app.use("auth", authRoutes)
+app.use("/auth", authRoutes)
+app.use("/users", userRoutes)
+app.use("/posts", postRoutes)
 
 // MongoDB Database
 const PORT = process.env.PORT || 6001

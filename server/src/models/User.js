@@ -30,7 +30,7 @@ const UserSchema = new Schema({
         type: String,
         default: ""
     },
-    frieds: {
+    friends: {
         type: Array,
         default: "[]"
     },
