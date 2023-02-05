@@ -12,12 +12,16 @@ import morgan from "morgan"
 import path from "path"
 import { fileURLToPath } from "url"
 
-// Local
+// Controllers
 import { register } from "./controllers/auth.js"
+import { createPost } from "./controllers/posts.js" 
+
+// Routes
 import authRoutes from "./routes/auth.js"
 import userRoutes from "./routes/users.js"
 import postRoutes from "./routes/posts.js"
-import { createPost } from "./controllers/posts.js" 
+
+// Auth token
 import { verifyToken } from "./middleware/auth.js"
 
 // Models
