@@ -24,11 +24,9 @@ import postRoutes from "./routes/posts.js"
 // Auth token
 import { verifyToken } from "./middleware/auth.js"
 
-// Models
+// Sample data & Model
 import User from "./models/User.js"
 import Post from "./models/Post.js"
-
-// Sample data
 import { users, posts } from "./data/index.js"
 
 // Server Configurations
