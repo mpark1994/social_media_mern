@@ -36,7 +36,7 @@ const UserSchema = new Schema({
     },
     location: String,
     occupation: String,
-    viewedPorfile: Number,
+    viewedProfile: Number,
     impressions: Number
 }, {timestamps: true})
 
